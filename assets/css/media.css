@@ -7,13 +7,13 @@
 
 @media screen and (max-width:1199px) {
     .wrapper{
-        width: 100%;
+        width: 960px;
     }
 }
 
 @media screen and (max-width:991px) {
     .wrapper{
-        width: 100%;
+        width: 720px;
     }
 }
 
