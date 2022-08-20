@@ -26,7 +26,7 @@
                 <?php 
                 if(isset($_SESSION["user_id"]) && $_SESSION["user_id"] != null) {
                     $sql = "SELECT * FROM users WHERE id =" . $_SESSION["user_id"];
-                    $result = mysqli_query($conn, $sql);
+                    $result = mysqli_query($connect, $sql);
                     $user = $result->fetch_assoc();
 
                     if($user['role'] == "admin") {
@@ -78,15 +78,20 @@
                             WHERE `email` = '" . $_POST['email'] . "' 
                             AND `password` = '" . $_POST['password'] . "'
                             ";
-                            $result = mysqli_query($conn, $sql);
+                            $result = mysqli_query($connect, $sql);
                             $user = $result->fetch_assoc();
                             if ($user) {
                                 $_SESSION["user_id"] = $user['id'];
-                                header("Location: /");
+                                ?>
+                                <script>
+                                    window['location']['reload']();
+                                    window.location.href=window.location.href.slice(0, -1);
+                                </script>
+                                <?php
                             } else {
                                 /*Проверяем существует ли у нас такой пользователь в БД*/
                                 $sql = "SELECT `email` FROM `users` WHERE `email` = '" . $_POST['email'] . "'";
-                                $result = mysqli_query($conn, $sql);
+                                $result = mysqli_query($connect, $sql);
                                 $rows = $result->fetch_assoc();
                                 /*Если существует такой пользователь в БД то выдаем сообщение*/
                                 if($rows <= 0) {
@@ -140,7 +145,7 @@
                     if (isset($_REQUEST['REG'])) {
                     /*Проверяем существует ли у нас такой пользователь в БД*/
                     $sql = "SELECT `email` FROM `users` WHERE `email` = '" . $_POST['email'] . "'";
-                    $result = mysqli_query($conn, $sql);
+                    $result = mysqli_query($connect, $sql);
                     $rows = $result->fetch_assoc();
                     /*Если существует такой пользователь в БД то выдаем сообщение*/
                     if($rows > 0) {
@@ -165,7 +170,7 @@
                         else if (!empty($_POST)) {
                         // echo $_POST['username'] . " - " . " - " . $_POST['phone'];
                         $sql = "INSERT INTO `users` (`username`, `email`, `password`, `phone`) VALUES ('" . $_POST['username'] . "', '" . $_POST['email'] . "', '" . $_POST['password'] . "', '" . $_POST['phone'] . "');";
-                        if (mysqli_query($conn, $sql)) {
+                        if (mysqli_query($connect, $sql)) {
                             ?>
                         <script>
                             document.getElementById('modalWindowRegisret').style.display = 'none';
@@ -176,7 +181,7 @@
                             WHERE `email` = '" . $_POST['email'] . "' 
                             AND `password` = '" . $_POST['password'] . "'
                             ";
-                            $result = mysqli_query($conn, $sql);
+                            $result = mysqli_query($connect, $sql);
                             $user = $result->fetch_assoc();
                             if ($user) {
                                 $_SESSION["user_id"] = $user['id'];

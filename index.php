@@ -19,52 +19,35 @@ require($_SERVER['DOCUMENT_ROOT'] . "/partials/header-menu.php");
             <div class="underline"> </div>
         </div>
         
+
+<?php
+
+$catalogs = mysqli_query($connect, "SELECT catalogs.id, composition, category, price, amount_catalog, imagename FROM (catalogs JOIN category ON id_category = category.id) JOIN composition ON id_composition = composition.id;");
+
+$catalogs = mysqli_fetch_all($catalogs);
+
+foreach ($catalogs as $catalogs) {
+    ?>
         <div class="offers__container">
             <div class="card">
                 <div class="card__container">
-                    <img src="/assets/img/products/pizza/pizza_rancho.png" alt="pizza_rancho">
+                <img src="\assets\img\products\<?= $catalogs[5] ?>" >
 
                     <div class="card__description">
-                        <h4 class="card__title">Ранчо</h4>
+                        <h4 class="card__title"><?= $catalogs[1] ?></h4>
                         <p class="card__subtitle">Тісто, соус вершковий, сир моцарела, шинка, смажене куряче філе,
                             печериці, цибуля синя, помідори, рукола.</p>
-                        <p class="card__weight">Вага: 350 г</p>
-                        <p class="card__price">180 ₴</p>
+                        <p class="card__weight">Вага:<?= $catalogs[4] ?> г</p>
+                        <p class="card__price"><?= $catalogs[3] ?> грн</p>
                     </div>
                 </div>
 
                 <button class="add__cart">Додати у кошик</button>
             </div>
-
-            <div class="card">
-                <div class="card__container">
-                    <img src="/assets/img/products/pizza/pizza_4cheeses.png" alt="pizza_4cheeses">
-                    
-                    <div class="card__description">
-                        <h4 class="card__title">4 сира</h4>
-                        <p class="card__subtitle">Тісто, соус вершковий, сир моцарела, сир пармезан, сир рікота, сир дорблю, грецький горіх, рукола.</p>
-                        <p class="card__weight">Вага: 350 г</p>
-                        <p class="card__price">180 ₴</p>
-                    </div>
-                </div>
-
-                <button class="add__cart">Додати у кошик</button>
-            </div>
-
-            <div class="card">
-                <div class="card__container">
-                    <img src="/assets/img/products/pizza/pizza_vegano.png" alt="pizza_vegano">
-                    <div class="card__description">
-                        <h4 class="card__title">Вегано</h4>
-                        <p class="card__subtitle">Тісто, соус томатний, сир моцарела, броколі, перець болгарський, цибуля синя, маслини, рукола.</p>
-                        <p class="card__weight">Вага: 350 г</p>
-                        <p class="card__price">180 ₴</p>
-                    </div>
-                </div>
-
-                <button class="add__cart">Додати у кошик</button>
-            </div>
-        </div>
+<?php
+}
+?>
+          
         
     </section>
 </div>

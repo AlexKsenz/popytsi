@@ -1,14 +1,14 @@
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Користувачі</h1>
+    <h1 class="h3 mb-0 text-gray-800">Замовлення</h1>
     
-    <a href="?page=add_user" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-        <i class="fas fa-download fa-sm text-white-50"></i> Додати користувача</a>
+    <a href="?page=add_order" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+        <i class="fas fa-download fa-sm text-white-50"></i> Додати замовлення</a>
 </div>
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Список користувачів</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Список замовлень</h6>
     </div>
 
    
@@ -32,7 +32,7 @@
 
                     <?php 
                         // виводимо всі дані окрім того, чия зараз сессія (адміна)
-                        $sql = "SELECT * FROM `users` WHERE `id` !=" . $userID;
+                        $sql = "SELECT * FROM users WHERE id !=" . $userID;
                         $result = mysqli_query($connect, $sql); 
                         // var_dump($result);
                         while($row = $result->fetch_assoc()) // отримуємо всі рядки в циклі по одному

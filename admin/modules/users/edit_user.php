@@ -5,16 +5,16 @@
             $sql = "UPDATE `users` SET `username` = '" . $_POST['name'] . "', `phone` = '" . $_POST['phone'] . "', `email` = '" . $_POST['email'] . "', 
             `password` = '" . $_POST['password'] . "' WHERE `id` = " . $_GET['id'] . ";";
 
-            if (mysqli_query($conn, $sql)) {
+            if (mysqli_query($connect, $sql)) {
                 // echo '<h1 class="h3 mb-2 text-gray-800">Дані оновлено. <a href="/admin/users.php">Повернутись</a></h1>';
                 echo 'Дані оновлено. <a href="/admin/users.php">Повернутись</a>';
             } else {
-                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                echo "Error: " . $sql . "<br>" . mysqli_error($connect);
         }
     }
 
     $sql = "SELECT * FROM users WHERE id = " . $_GET['id'];
-    $result =  mysqli_query($conn, $sql);
+    $result =  mysqli_query($connect, $sql);
     $row = $result->fetch_assoc();
     ?>
 </p>

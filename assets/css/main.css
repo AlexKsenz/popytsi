@@ -2,18 +2,248 @@
 @import url(../fonts/fonts.css);
 @import url(media.css);
 
-.wrapper{
-    background:url('../img/main_bg.jpg') center/cover no-repeat ;
-}
-.title{
-    margin-top:45vh;
+.wrapper {
+    max-width: 1395px;
+    margin: 0 auto;
+
 }
 
-.main__title{
-    font-family: 'Comfortaa';
-    color:rgb(252, 252, 249);
+/* header   */
+.menu {
+
+    background-color: #231F20;
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.menu__item {
+    font-family: 'Montserrat';
+    display: flex;
+    height: 30px;
+    margin: 15px auto;
+}
+
+.menu__item a,
+.menu__item p {
+    color: #fff;
     font-weight: 700;
-    font-size: 40px;
+    font-size: 13px;
+    padding-top: 7px;
+    padding-left: 12px;
+    padding-right: 12px;
+    text-align: center;
+}
+
+.shedule p {
+    padding-top: 3px;
+}
+
+.menu__item img {
+    display: block;
+    width: 28px;
+    height: 28px;
+}
+
+.menu__social a {
+    display: flex;
+    justify-content: space-around;
+    margin-left: 9px;
+    padding-top: 2px;
+
+}
+
+.menu__signin {}
+
+.signin {}
+
+.hamburger {
+    display: none;
+}
+
+.subheader {
+    /* border: 1px solid green; */
+}
+
+.subheader__container {
+    height: 90px;
+}
+
+.products {
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-around;
+    /* border: 1px solid rgb(242, 8, 211); */
+}
+
+.products a {
+    display: block;
+    font-size: 24px;
+    font-weight: 800;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.subheader__logo {
+    height: 90px;
+}
+
+.subheader__logo a {
+    display: flex;
+    /* border: 1px solid red; */
+    margin-top: 0px;
+}
+
+.subheader__logo p {
+    font-family: 'Mochiy Pop One';
+    font-size: 38px;
+    padding: 13px;
+    text-align: left;
+    color: #231F20;
+}
+
+.subheader__logo p span {
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: -0.015em;
+    text-transform: uppercase;
+}
+
+.food {
+    display: flex;
+    height: 48px;
+    margin-top: 20px;
+    /* border: 1px solid rgb(41, 22, 214); */
+}
+
+.food a {
+    font-family: 'Montserrat';
+    color: #231F20;
+    font-weight: 800;
+    font-size: 24px;
+    padding-left: 17px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.greeting {
+    height: 90px;
+    /* border: 1px solid rgb(41, 22, 214); */
+}
+
+.greeting p,
+.greeting span {
+    padding-top: 25px;
+    font-weight: 700;
+    font-size: 14px;
+    text-align: right;
+    line-height: 18px;
+    color: #0E0C0D;
+}
+
+.username {}
+
+.cart {
+    height: 48px;
+    padding-right: 15px;
+    padding-top: 15px;
+}
+
+/* promo_______________ */
+
+.promo {
+    min-height: 780px;
+    background: url('../img/main_bg.jpg') center center/cover no-repeat;
+}
+
+/* offers__piza_______________ */
+
+.offers__piza {
+    margin: 43px auto;
+    width: 100%;
+}
+
+.offers__title {
+    width: 30%;
+    margin: 0 auto;
+
+}
+
+.offers__title h3 {
+    font-weight: 800;
+    font-size: 60px;
     text-align: center;
 
+}
+
+.underline {
+    text-align: center;
+    /* width: 310px; */
+    height: 2px;
+    background-color: #000;
+    margin: 37px auto 100px;
+}
+
+.offers__container {
+    display: flex;
+    margin: 0 auto;
+    border: 1px solid blue;
+}
+
+.card {
+    border: 1px solid green;
+}
+
+.card__container {
+    width: 30%;
+    border: 1px solid red;
+    display: flex;
+
+}
+
+.card__description {
+    border: 1px solid gray;
+    background: rgba(255, 255, 255, 0.9);
+    width: 50%;
+}
+
+.card__title {
+    margin-top: 110px;
+    margin-left: 15px;
+    font-weight: 800;
+    font-size: 24px;
+}
+
+.card__subtitle {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 19px;
+    color: #686466;
+}
+
+.card__weight {}
+
+.card__price {}
+
+.add__cart {
+    background: #231F20;
+    border-radius: 8px;
+    color: #fff;
+}
+
+
+
+/* footer_______________ */
+.wrapper footer {
+    height: 92px;
+    background: #231F20;
+}
+.wrapper footer p {
+    margin: 39px auto;
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
 }

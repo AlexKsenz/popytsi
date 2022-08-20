@@ -96,7 +96,7 @@ require($_SERVER['DOCUMENT_ROOT'] . "/partials/header.php");
 <?php
 if(isset($_SESSION["user_id"]) && $_SESSION["user_id"] != null) {
                     $sql = "SELECT * FROM users WHERE id =" . $_SESSION["user_id"];
-                    $result = mysqli_query($conn, $sql);
+                    $result = mysqli_query($connect, $sql);
                     $user = $result->fetch_assoc();
 ?>
 <span class="username"> <?php echo $user["username"] ?>!</span>

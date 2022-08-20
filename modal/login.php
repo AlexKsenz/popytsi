@@ -31,10 +31,10 @@ require($_SERVER['DOCUMENT_ROOT'] . "/partials/header.php");
                     <?php
                     if (!empty($_POST)) {
                         $sql = "SELECT * FROM `users` 
-                WHERE `email` = '" . $_POST['email'] . "' 
-                AND `password` = '" . $_POST['password'] . "'
-                ";
-                        $result = mysqli_query($conn, $sql);
+                        WHERE `email` = '" . $_POST['email'] . "' 
+                        AND `password` = '" . $_POST['password'] . "'
+                        ";
+                        $result = mysqli_query($connect, $sql);
                         $user = $result->fetch_assoc();
                         if ($user) {
                             $_SESSION["user_id"] = $user['id'];

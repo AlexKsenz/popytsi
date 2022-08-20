@@ -30,7 +30,7 @@
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-        <a class="nav-link" href="/admin/users.php">
+        <a class="nav-link" id="navLinkUser" href="/admin/users.php">
             <i class="fas fa-user-friends"></i>
             <span>Користувачі</span></a>
     </li>
@@ -42,16 +42,14 @@
         <a class="nav-link" href="/admin/orders.php">
             <span>Замовлення</span></a>
     </li>
-  
-   
-
+    
     <li class="nav-item">
-        <a class="nav-link" href="/admin/dishes.php">
-            <span>Каталог страв</span></a>
+        <a class="nav-link" id="navLinkCompositions" href="/admin/compositions.php">
+            <span>Страви</span></a>
     </li>
     
     <li class="nav-item">
-        <a class="nav-link" href="/admin/ingredients.php">
+        <a class="nav-link" id="navLinkProducts" href="/admin/products.php">
             <span>Інгредієнти</span></a>
     </li>
 

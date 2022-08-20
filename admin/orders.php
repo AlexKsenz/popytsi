@@ -22,7 +22,7 @@ require($_SERVER['DOCUMENT_ROOT'] . "/admin/partials/sidebar.php");
                     <?php
                     // Робимо сторінку замовлення статичною, щоб в ній же відображати редагування та видалення 
                     if(empty($_GET)){
-                        require($_SERVER['DOCUMENT_ROOT'] . "/admin/modules/orders/all-orders.php");
+                        require($_SERVER['DOCUMENT_ROOT'] . "/admin/modules/orders/all_orders.php");
                     } else {
                         //------ Перевірка яка відбувається відправка 
                         // echo '<pre>' , var_dump($_GET) , '</pre>';

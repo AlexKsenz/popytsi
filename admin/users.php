@@ -3,11 +3,17 @@ require($_SERVER['DOCUMENT_ROOT'] . "/admin/partials/header.php");
 ?>
 
 
+
 <!-- Page Wrapper -->
 <div id="wrapper">
-<?php 
-require($_SERVER['DOCUMENT_ROOT'] . "/admin/partials/sidebar.php");
-?>
+    <?php 
+    require($_SERVER['DOCUMENT_ROOT'] . "/admin/partials/sidebar.php");
+    ?>
+    <script>
+        var activeSelectedLink = document.getElementById("navLinkUser");
+        // додавання класу для виділення активної сторінки
+        activeSelectedLink.classList.add('selected');
+    </script>
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
