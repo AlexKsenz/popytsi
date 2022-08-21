@@ -39,8 +39,8 @@
     <hr class="sidebar-divider d-none d-md-block">
 
     <li class="nav-item">
-        <a class="nav-link" href="/admin/orders.php">
-            <span>Замовлення</span></a>
+        <a class="nav-link" id="navLinkCatalog" href="/admin/catalogs.php">
+            <span>Каталог страв</span></a>
     </li>
     
     <li class="nav-item">

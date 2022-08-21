@@ -6,15 +6,16 @@ require($_SERVER['DOCUMENT_ROOT'] . "/partials/header.php");
 ?> -->
 
 
-<div class="wrapper">
+<!-- <div class="wrapper"> -->
 
     <!-- header -->
     <header>
+        <nav>
+            <div class="container">
         <?php
         require($_SERVER['DOCUMENT_ROOT'] . "/partials/header-top.php");
         ?>
-        <nav>
-            <!-- <div class="container">
+            <!-- 
                 <ul class="menu">
                     <li class="menu__item shedule">
                         <img src="/assets/icons/clock.png" alt="clock">
@@ -71,22 +72,22 @@ require($_SERVER['DOCUMENT_ROOT'] . "/partials/header.php");
 
                     <div class="food">
                         <img src="/assets/icons/piza.png" alt="piza">
-                        <a href="#">Піца</a>
+                        <a href="#piza">Піца</a>
                     </div>
 
 
                     <div class="food">
                         <img src="/assets/icons/salad.png" alt="salad">
-                        <a href="#">Салати</a>
+                        <a href="#salads">Салати</a>
                     </div>
                     <div class="food">
                         <img src="/assets/icons/potables.png" alt="potable">
-                        <a href="#">
+                        <a href="#potables">
                             Напої</a>
                     </div>
                     <div class="food">
                         <img src="/assets/icons/dessert.png" alt="potable">
-                        <a href="#">
+                        <a href="#deserts">
                             Десерти</a>
                     </div>
 
