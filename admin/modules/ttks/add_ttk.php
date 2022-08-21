@@ -1,5 +1,5 @@
 <?php 
-require_once($_SERVER['DOCUMENT_ROOT'] . "/admin/partials/header.php");
+require($_SERVER['DOCUMENT_ROOT'] . "/admin/partials/header.php");
 ?>
 
 <!-- Page Wrapper -->
@@ -34,7 +34,16 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/admin/partials/header.php");
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Додавання нового інгредієнту</h6>
+                    <?php  
+                      $sql =  "SELECT * FROM `composition` WHERE id =" . $_GET["id"];
+                      $result = mysqli_query($connect, $sql);
+                      $composition = $result->fetch_assoc();  
+                    // var_dump ($composition["composition"]);
+                    // die(); 
+                    ?>
+                <h6 class="font-weight-bold text-primary">Додавання нового інгредієнту до страви</h6>
+                <h4 class="font-weight-bold text-uppercase"><?= $composition["composition"] ?></h4>
+
                 </div>
                 
                 <div class="card-body">
@@ -52,7 +61,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/admin/partials/header.php");
                         <!-- <input type="hidden" name="id" value="<?= $ttk['id'] ?>"> -->
                         
                         <div class="form-group"> 
-                            <p>Вибрати продукт:</p>
+                            <p>Вибрати інгредієнт:</p>
                             <select class="form-control" name="products_id">
                             <?php while (($category = $categories->fetch_assoc()) > 0): ?>
                             <?php if($category['id'] == $article ['products_id']): ?>  

@@ -9,7 +9,7 @@ require($_SERVER['DOCUMENT_ROOT'] . "/admin/partials/header.php");
     require($_SERVER['DOCUMENT_ROOT'] . "/admin/partials/sidebar.php");
     ?>
     <script>
-        var activeSelectedLink = document.getElementById("navLinkCompositions");
+        var activeSelectedLink = document.getElementById("navLinkCatalog");
         // додавання класу для виділення активної сторінки
         activeSelectedLink.classList.add('selected');
     </script>
@@ -26,31 +26,17 @@ require($_SERVER['DOCUMENT_ROOT'] . "/admin/partials/header.php");
             <div class="container-fluid">
                 
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h3 mb-0 text-gray-800">Технічні карти</h1>
+                <h1 class="h3 mb-0 text-gray-800">Каталог страв</h1>
                 
-                <a href="/admin/modules/ttks/add_ttk.php?<?= $_SERVER["QUERY_STRING"] ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                <i class="fas fa-download fa-sm text-white-50"></i> Додати новий інгредієнт до страви</a>
+                <a href="/admin/modules/catalogs/add_catalog.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                <i class="fas fa-download fa-sm text-white-50"></i> Додати новий продукт в каталог</a>
 
             </div>
 
-            <p class="mb-4"> 
-                <a href="/admin/compositions.php">Повернутись до назв страв</a>
-            </p>
 
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <?php  
-                      $sql =  "SELECT * FROM `composition` WHERE id =" . $_GET["id"];
-                      $result = mysqli_query($connect, $sql);
-                      $composition = $result->fetch_assoc();  
-                    // var_dump ($composition["composition"]);
-                    // die(); 
-                    ?> 
-                    <h6 class="font-weight-bold text-primary">Перелік інгредієнтів страви</h6>
-                    <h4 class="font-weight-bold text-uppercase"><?= $composition["composition"] ?></h4>
-                </div>
-           
+         
 
                 <div class="card-body">
                     <div class="table-responsive">
@@ -59,7 +45,13 @@ require($_SERVER['DOCUMENT_ROOT'] . "/admin/partials/header.php");
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Складові</th>
+                                    <th>Назва страви</th>
+                                    <th>Категорія</th>
+                                    <th>Ціна (грн)</th>
+                                    <th>Вага</th>
+                                    <th>Коментарі</th>
+                                    <th>Фото</th>
+                                    
                                     <th>Опції</th>
                                 </tr>
                             </thead>
@@ -67,19 +59,23 @@ require($_SERVER['DOCUMENT_ROOT'] . "/admin/partials/header.php");
                             <tbody>
 
                                 <?php 
-                                    $ttk_id = $_GET['id'];
-                                    $ttk = mysqli_query($connect, "SELECT ttk.id, id_composition, products_name FROM ttk JOIN products ON products_id = products.id WHERE id_composition = '$ttk_id'");
-                                    $ttk = mysqli_fetch_all($ttk);
-                                    foreach ($ttk as $ttk) {
+                                    $catalogs = mysqli_query($connect, "SELECT catalogs.id, composition, category, price, amount_catalog, imagename, comments FROM (catalogs JOIN category ON id_category = category.id) JOIN composition ON id_composition = composition.id;");
+                                    $catalogs = mysqli_fetch_all($catalogs);
+                                    foreach ($catalogs as $catalogs) {
                                 ?> 
 
                                 <tr>
-                                    <td><?= $ttk[0] ?></td>
-                                    <td><?= $ttk[2] ?></td>
+                                    <td><?= $catalogs[0] ?></td>
+                                    <td><?= $catalogs[1] ?></td>
+                                    <td><?= $catalogs[2] ?></td>
+                                    <td><?= $catalogs[3] ?></td>
+                                    <td><?= $catalogs[4] ?> г</td>
+                                    <td><?= $catalogs[6] ?></td>
+                                    <td><img src="modules/catalogs/vendor/upload/<?= $catalogs[5] ?>" style="height: 50px; width: 50px;"></td>
                                     <td>
-                                        <!-- <a class="btn btn-light" href="/admin/ttk/index.php?id=<?= $composition[0] ?>"><i class="fas fa fa-bars"></i>    Детальніше</a>
-                                        <a class="btn btn-light" href="?page=edit_composition&id=<?= $composition[0] ?>"><i class="fas fa-marker"></i>  Змінити назву</a> -->
-                                        <a class="btn btn-dark" href="/admin/modules/ttks/vendor/delete_ttk.php?id=<?= $ttk[0] ?>">
+
+                                        <a class="btn btn-light" href="/admin/modules/catalogs/edit_catalog.php?id=<?= $catalogs[0] ?>"><i class="fas fa-marker"></i>  Редагувати</a>
+                                        <a class="btn btn-dark" href="/admin/modules/catalogs/vendor/delete_catalog.php?id=<?= $catalogs[0] ?>">
                                         <i class="fas fa-trash-alt"></i>    Видалити</a>
                                     </td>
                                 </tr>
